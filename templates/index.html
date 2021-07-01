@@ -1,0 +1,18 @@
+{% extends "template.html" %}}
+{% block content %}
+{% if session.logged_in %}
+  <form action="{{ url_for('upload') }}" method=post enctype="multipart/form-data">
+    <dl>
+      <dt>アップロードする画像を選択してください:
+      <dd><input type=file id="img_file" name=img_file>
+      <dd><input type=submit value=送信>
+    </dl>
+  </form>
+
+  {% if result_img %}
+    <p>
+        <img src={{result_img}}>
+    </p>
+  {% endif %}
+{% endif %}
+{% endblock %}
